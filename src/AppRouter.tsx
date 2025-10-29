@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { App } from './App';
 import { WalletFunding } from './pages/WalletFunding';
@@ -12,8 +11,10 @@ import { SocialFeed } from './pages/SocialFeed';
 export function AppRouter() {
   return <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/signup-flow" element={<SignupFlow />} />
+  <Route path="/" element={<SignupFlow />} />
+  {/* keep the original App available at /app in case it's used elsewhere */}
+  <Route path="/app" element={<App />} />
+  <Route path="/signup-flow" element={<SignupFlow />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/wallet" element={<WalletFunding />} />
         <Route path="/send" element={<SendRecognition />} />
